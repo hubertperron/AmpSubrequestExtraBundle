@@ -1,5 +1,6 @@
 parameters:
     amp_subrequest_extra.kernel_response_listener.class: Amp\SubrequestExtraBundle\Listener\ResponseListener
+    data_collector.subrequest.class: Amp\SubrequestExtraBundle\Collector\SubrequestCollector
 
 services:
 #    amp_subrequest_extra.example:
@@ -17,3 +18,9 @@ services:
 #          - [ setContainer, [ @service_container ] ]
 #          - [ addApplicationCore, [ "backend", @egzakt_backend.core ] ]
 #          - [ addApplicationCore, [ "frontend", @egzakt_frontend.core ] ]
+
+    data_collector.subrequest:
+        class: %data_collector.subrequest.class%
+        tags:
+            - { name: data_collector, template: "AmpSubrequestExtraBundle:Collector:subrequest", id: "subrequests" }
+

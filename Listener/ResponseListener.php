@@ -25,7 +25,7 @@ class ResponseListener
             }
 
             $content = '
-                <div style="border:solid 1px red;min-height:20px;margin:6px 0">
+                <div style="border:solid 1px red;min-height:20px;margin:6px 0;z-index:994">
                     <div style="position:absolute;overflow:hidden;padding:2px 5px;opacity:0.9;background-color:#9FF;z-index:995;line-height:16px;font-family:sans-serif;font-size:11px">' . $controller . '</div>'
                     . $content . '
                 </div>';
