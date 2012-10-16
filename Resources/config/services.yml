@@ -1,23 +1,16 @@
 parameters:
+
     amp_subrequest_extra.kernel_response_listener.class: Amp\SubrequestExtraBundle\Listener\ResponseListener
     data_collector.subrequest.class: Amp\SubrequestExtraBundle\Collector\SubrequestCollector
 
 services:
-#    amp_subrequest_extra.example:
-#        class: %amp_subrequest_extra.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
-
 
     amp_subrequest_extra.kernel_response_listener:
         class: %amp_subrequest_extra.kernel_response_listener.class%
         tags:
-          - { name: kernel.event_listener, event: kernel.response }
-#        calls:
-#          - [ setLogger, [ @logger ] ]
-#          - [ setSystemCore, [ @egzakt_system.core ] ]
-#          - [ setContainer, [ @service_container ] ]
-#          - [ addApplicationCore, [ "backend", @egzakt_backend.core ] ]
-#          - [ addApplicationCore, [ "frontend", @egzakt_frontend.core ] ]
+            - { name: kernel.event_listener, event: kernel.response }
+        calls:
+            - [ setContainer, [ @service_container ] ]
 
     data_collector.subrequest:
         class: %data_collector.subrequest.class%
