@@ -22,14 +22,24 @@ class ResponseListener
         if (Kernel::SUB_REQUEST == $event->getRequestType()) {
 
             $content = $response->getContent();
-            $controller = $event->getRequest()->get('_controller');
+            $parameters = $event->getRequest()->attributes->all();
+            $controller = $parameters['_controller'];
 
+            // Removing internal parameters
+            foreach (array_keys($parameters) as $key) {
+                if (0 === strpos($key, '_')) {
+                    unset($parameters[$key]);
+                }
+            }
+
+            // Skipping ignored controllers
             if (in_array($controller, $ignores)) {
                 return;
             }
 
             $wrappedContent = $this->container->get('templating')->render('AmpSubrequestExtraBundle:Listener:wrapper.html.twig', array(
                 'controller' => $controller,
+                'parameters' => json_encode($parameters, JSON_PRETTY_PRINT),
                 'content' => $content
             ));
 
