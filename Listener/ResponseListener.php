@@ -16,8 +16,7 @@ class ResponseListener
     {
         $response = $event->getResponse();
 
-        $ignores = array(
-        );
+        $ignores = $this->container->getParameter('amp_subrequest_extra.ignore_controllers');
 
         if (Kernel::SUB_REQUEST == $event->getRequestType()) {
 

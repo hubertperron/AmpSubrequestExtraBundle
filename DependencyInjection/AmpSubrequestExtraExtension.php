@@ -22,6 +22,8 @@ class AmpSubrequestExtraExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('amp_subrequest_extra.ignore_controllers', $config['ignore_controllers']);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
