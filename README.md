@@ -1,4 +1,4 @@
-AmpPDFCrowdBundle
+AmpSubrequestExtraBundle
 =================
 
 This bundle add a way to graphically view each subrequests used on a single page. Subrequests are wrapped in a template container displaying additional information about the request.
