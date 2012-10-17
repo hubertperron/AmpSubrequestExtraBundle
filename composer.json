@@ -1,0 +1,21 @@
+{
+    "name": "amp/subrequestextra-bundle",
+    "type": "symfony-bundle",
+    "description": "A Symfony2 bundle to visually debug subrequests",
+    "keywords": ["subrequest", "debug", "toolbar"],
+    "homepage": "https://github.com/hubertperron/AmpSubrequestExtraBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hubert Perron",
+            "email": "hubert.perron@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Amp\\SubrequestExtraBundle": "" }
+    },
+    "target-dir": "Amp/SubrequestExtraBundle"
+}
