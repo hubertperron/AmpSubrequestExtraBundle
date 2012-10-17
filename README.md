@@ -5,6 +5,12 @@ This bundle add a way to graphically view each subrequests used on a single page
 
 ## Installation
 
+### Using the deps file
+
+    [AmpSubrequestExtraBundle]
+        git=http://github.com/hubertperron/AmpSubrequestExtraBundle.git
+        target=/bundles/Amp/SubrequestExtraBundle
+
 ### Using composer
 
     {
