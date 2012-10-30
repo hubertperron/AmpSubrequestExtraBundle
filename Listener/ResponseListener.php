@@ -4,6 +4,7 @@ namespace Amp\SubrequestExtraBundle\Listener;
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ResponseListener
 {
@@ -15,10 +16,17 @@ class ResponseListener
     public function onKernelResponse(FilterResponseEvent $event)
     {
         $response = $event->getResponse();
+        $request = $event->getRequest();
+        $session = $request->getSession();
 
         $ignores = $this->container->getParameter('amp_subrequest_extra.ignore_controllers');
 
-        if (Kernel::SUB_REQUEST == $event->getRequestType()) {
+        // Using the superglobal because of the order which symfony request are processed
+        if (isset($_REQUEST['_subrequest_extra_toggle'])) {
+            $session->set('_subrequest_extra_enabled', !$session->get('_subrequest_extra_enabled'));
+        }
+
+        if (Kernel::SUB_REQUEST == $event->getRequestType() && $session->get('_subrequest_extra_enabled')) {
 
             $content = $response->getContent();
             $parameters = $event->getRequest()->attributes->all();
