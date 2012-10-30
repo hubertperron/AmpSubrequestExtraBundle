@@ -14,7 +14,7 @@ This bundle add a way to graphically view each subrequests used on a single page
 ### Using composer
 
     {
-        "require": {                                             |
+        "require": {
             "amp/subrequestextra-bundle": "dev-master"
         }
     }
@@ -32,13 +32,23 @@ public function registerBundles()
 }
 ```
 
-## Configuration
+### Register namespace (Symfony 2.0.x)
 
-TODO
+``` php
+// File: app/autoload.php
+$loader->registerNamespaces(array(
+        // ...
+        'Amp' => __DIR__.'/../vendor/bundles',
+));
+```
+
+## Configuration
 
 ``` yaml
 amp_subrequest_extra:
-    ~
+    ignore_controllers:
+        - AcmeDemoBundle:Welcome:index
+        - AcmeDemoBundle:Example:list
 ```
 
 ## Usage
