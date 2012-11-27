@@ -43,9 +43,11 @@ class ResponseListener
                 return;
             }
 
+            $jsonParameters = $parameters ? json_encode($parameters, JSON_PRETTY_PRINT) : '';
+
             $wrappedContent = $this->container->get('templating')->render('AmpSubrequestExtraBundle:Listener:wrapper.html.twig', array(
                 'controller' => $controller,
-                'parameters' => json_encode($parameters, JSON_PRETTY_PRINT),
+                'parameters' => $jsonParameters,
                 'content' => $content
             ));
 
