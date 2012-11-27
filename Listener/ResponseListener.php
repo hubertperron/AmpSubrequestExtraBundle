@@ -21,9 +21,9 @@ class ResponseListener
 
         $ignores = $this->container->getParameter('amp_subrequest_extra.ignore_controllers');
 
-        // Using the superglobal because of the order which symfony request are processed
-        if (isset($_REQUEST['_subrequest_extra_toggle'])) {
-            $session->set('_subrequest_extra_enabled', !$session->get('_subrequest_extra_enabled'));
+        // Using the superglobal because of the order which symfony requests are processed
+        if (isset($_REQUEST['_subrequest_extra_enabled'])) {
+            $session->set('_subrequest_extra_enabled', (bool) $_REQUEST['_subrequest_extra_enabled']);
         }
 
         if (Kernel::SUB_REQUEST == $event->getRequestType() && $session->get('_subrequest_extra_enabled')) {
