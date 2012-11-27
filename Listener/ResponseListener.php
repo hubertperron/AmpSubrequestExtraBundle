@@ -4,7 +4,6 @@ namespace Amp\SubrequestExtraBundle\Listener;
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ResponseListener
 {
@@ -26,7 +25,7 @@ class ResponseListener
             $session->set('_subrequest_extra_enabled', (bool) $_REQUEST['_subrequest_extra_enabled']);
         }
 
-        if (Kernel::SUB_REQUEST == $event->getRequestType() && $session->get('_subrequest_extra_enabled')) {
+        if (Kernel::SUB_REQUEST === $event->getRequestType() && $session->get('_subrequest_extra_enabled')) {
 
             $content = $response->getContent();
             $parameters = $event->getRequest()->attributes->all();
