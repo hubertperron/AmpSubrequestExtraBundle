@@ -25,7 +25,11 @@ class ResponseListener
             $session->set('_subrequest_extra_enabled', (bool) $_REQUEST['_subrequest_extra_enabled']);
         }
 
-        if (Kernel::SUB_REQUEST === $event->getRequestType() && $session->get('_subrequest_extra_enabled')) {
+        if (false == $session->get('_subrequest_extra_enabled')) {
+            return;
+        }
+
+        if (Kernel::SUB_REQUEST === $event->getRequestType()) {
 
             $content = $response->getContent();
             $parameters = $event->getRequest()->attributes->all();
@@ -56,6 +60,15 @@ class ResponseListener
             ));
 
             $response->setContent($wrappedContent);
+        }
+
+        // Injecting CSS and JS content used by the wrappers
+        if (Kernel::MASTER_REQUEST == $event->getRequestType()) {
+
+            $css = $this->container->get('templating')->render('AmpSubrequestExtraBundle:Listener:wrapper_css.html.twig');
+            $js = $this->container->get('templating')->render('AmpSubrequestExtraBundle:Listener:wrapper_js.html.twig');
+
+            $response->setContent($response->getContent() . $css . $js);
         }
     }
 
