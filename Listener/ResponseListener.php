@@ -43,12 +43,16 @@ class ResponseListener
                 return;
             }
 
-            $jsonParameters = $parameters ? json_encode($parameters, JSON_PRETTY_PRINT) : '';
+            $hasParameters = count($parameters);
+            $jsonParameters = json_encode($parameters, JSON_PRETTY_PRINT);
+            $contentIsEmpty = (0 === strlen(preg_replace('/\s+/', '', $content)));
 
             $wrappedContent = $this->container->get('templating')->render('AmpSubrequestExtraBundle:Listener:wrapper.html.twig', array(
                 'controller' => $controller,
+                'hasParameters' => $hasParameters,
                 'parameters' => $jsonParameters,
-                'content' => $content
+                'content' => $content,
+                'contentIsEmpty' => $contentIsEmpty
             ));
 
             $response->setContent($wrappedContent);
