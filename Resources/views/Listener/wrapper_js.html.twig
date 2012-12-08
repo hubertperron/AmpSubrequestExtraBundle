@@ -1,9 +1,11 @@
 <script type="text/javascript">/*<![CDATA[*/
-    $(function(){
-        $('.sre-panel').click(function(){
-            var $parameters = $('.sre-parameters', $(this));
-            $parameters.toggle();
-            $(this).parent().css('min-height', $(this).outerHeight());
+    if (typeof jQuery != 'undefined') {
+        $(function(){
+            $('.sre-panel').click(function(){
+                var $parameters = $('.sre-parameters', $(this));
+                $parameters.toggle();
+                $(this).parent().css('min-height', $(this).outerHeight());
+            });
         });
-    });
+    }
 /*]]>*/</script>
