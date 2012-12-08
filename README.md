@@ -63,7 +63,7 @@ Without using parameters.
 {% render 'EgzaktFrontendHomeBundle:Home:ExampleWithoutParameters' %}
 ```
 
-![without parameters](https://github.com/hubertperron/AmpSubrequestExtraBundle/blob/master/Resources/doc/without_parameters.png)
+![without parameters](http://raw.github.com/hubertperron/AmpSubrequestExtraBundle/master/Resources/doc/without_parameters.png)
 
 Using parameters.
 
@@ -71,7 +71,7 @@ Using parameters.
 {% render 'EgzaktFrontendHomeBundle:Home:ExampleWithParameters' with { id: 1, hash: '0a7254fc5', displayActive: true } %}
 ```
 
-![without parameters](https://github.com/hubertperron/AmpSubrequestExtraBundle/blob/master/Resources/doc/with_parameters.png)
+![with parameters](http://raw.github.com/hubertperron/AmpSubrequestExtraBundle/master/Resources/doc/with_parameters.png)
 
 Returning an empty response.
 
@@ -79,6 +79,6 @@ Returning an empty response.
 {% render 'EgzaktFrontendHomeBundle:Home:ExampleReturningEmptyResponse' %}
 ```
 
-![without parameters](https://github.com/hubertperron/AmpSubrequestExtraBundle/blob/master/Resources/doc/empty_response.png)
+![empty response](https://raw.github.com/hubertperron/AmpSubrequestExtraBundle/master/Resources/doc/empty_response.png)
 
 
