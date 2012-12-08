@@ -54,3 +54,31 @@ amp_subrequest_extra:
 ## Usage
 
 Use the web debug toolbar icon to toggle the subrequests wrapper.
+
+## Example
+
+Without using parameters.
+
+``` twig
+{% render 'EgzaktFrontendHomeBundle:Home:ExampleWithoutParameters' %}
+```
+
+![without parameters](https://github.com/hubertperron/AmpSubrequestExtraBundle/blob/master/Resources/doc/without_parameters.png)
+
+Using parameters.
+
+``` twig
+{% render 'EgzaktFrontendHomeBundle:Home:ExampleWithParameters' with { id: 1, hash: '0a7254fc5', displayActive: true } %}
+```
+
+![without parameters](https://github.com/hubertperron/AmpSubrequestExtraBundle/blob/master/Resources/doc/with_parameters.png)
+
+Returning an empty response.
+
+``` twig
+{% render 'EgzaktFrontendHomeBundle:Home:ExampleReturningEmptyResponse' %}
+```
+
+![without parameters](https://github.com/hubertperron/AmpSubrequestExtraBundle/blob/master/Resources/doc/empty_response.png)
+
+
