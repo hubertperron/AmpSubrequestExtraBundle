@@ -60,7 +60,7 @@ Use the web debug toolbar icon to toggle the subrequests wrapper.
 Without using parameters.
 
 ``` twig
-{% render 'EgzaktFrontendHomeBundle:Home:ExampleWithoutParameters' %}
+{% render 'LoremBundle:Generate:ExampleWithoutParameters' %}
 ```
 
 ![without parameters](https://raw.github.com/hubertperron/AmpSubrequestExtraBundle/master/Resources/doc/without_parameters.png)
@@ -68,7 +68,7 @@ Without using parameters.
 Using parameters.
 
 ``` twig
-{% render 'EgzaktFrontendHomeBundle:Home:ExampleWithParameters' with { id: 1, hash: '0a7254fc5', displayActive: true } %}
+{% render 'LoremBundle:Generate:ExampleWithParameters' with { id: 1, hash: '0a7254fc5', displayActive: true } %}
 ```
 
 ![with parameters](https://raw.github.com/hubertperron/AmpSubrequestExtraBundle/master/Resources/doc/with_parameters.png)
@@ -76,7 +76,7 @@ Using parameters.
 Returning an empty response.
 
 ``` twig
-{% render 'EgzaktFrontendHomeBundle:Home:ExampleReturningEmptyResponse' %}
+{% render 'LoremBundle:Generate:ExampleReturningEmptyResponse' %}
 ```
 
 ![empty response](https://raw.github.com/hubertperron/AmpSubrequestExtraBundle/master/Resources/doc/empty_response.png)
