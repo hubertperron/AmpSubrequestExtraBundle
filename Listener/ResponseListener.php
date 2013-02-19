@@ -48,7 +48,14 @@ class ResponseListener
             }
 
             $hasParameters = count($parameters);
-            $jsonParameters = json_encode($parameters, JSON_PRETTY_PRINT);
+
+            // JSON_PRETTY_PRINT is only supported since 5.4
+            if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+                $jsonParameters = json_encode($parameters, JSON_PRETTY_PRINT);
+            } else {
+                $jsonParameters = json_encode($parameters);
+            }
+
             $contentIsEmpty = (0 === strlen(preg_replace('/\s+/', '', $content)));
 
             $wrappedContent = $this->container->get('templating')->render('AmpSubrequestExtraBundle:Listener:wrapper.html.twig', array(
