@@ -1,9 +1,13 @@
 {% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
 
 {% block toolbar %}
-    <span style="white-space:nowrap; color:#2f2f2f; display:inline-block; min-height:24px; border-right:1px solid #cdcdcd; padding:5px 7px 5px 4px; ">
-        <a href="?_subrequest_extra_enabled={{ collector.nextState }}" style="color: #2f2f2f;text-decoration: none">
-            subrequest<span style="margin: 0; padding: 0; color: #979696;">|</span>{% if collector.currentState %}<span style="color: #759e1a">on</span>{% else %}<span style="color: #a33">off</span>{% endif %}
-        </a>
-    </span>
+    <div class="sf-toolbar-block">
+        <div class="sf-toolbar-icon">
+            <a href="?_subrequest_extra_enabled={{ collector.nextState }}">
+                <img width="13" height="28" alt="Subrequest extra" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAcBAMAAABITyhxAAAAJ1BMVEXNzc3///////////////////////8/Pz////////////+NjY0/Pz9lMO+OAAAADHRSTlMAABAgMDhAWXCvv9e8JUuyAAAAQ0lEQVQI12MQBAMBBmLpMwoMDAw6BxjOOABpHyCdAKRzsNDp5eXl1KBh5oHBAYY9YHoDQ+cqIFjZwGCaBgSpBrjcCwCZgkUHKKvX+wAAAABJRU5ErkJggg==">
+                <span class="sf-toolbar-status{% if collector.currentState %} sf-toolbar-status-green{% endif %}">subrequest-extra</span>
+            </a>
+        </div>
+    </div>
+
 {% endblock %}
